@@ -10,7 +10,7 @@ from .utils import retrieve_data, is_latest_version, get_changelog
 from .entries import PersonaEntry
 from .changelog import Changelog
 
-__version__ = "0.5.3"
+__version__ = "0.6.0"
 
 
 class SigmaClient(Ui_MainWindow):
