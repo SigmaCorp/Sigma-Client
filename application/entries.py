@@ -83,3 +83,7 @@ class PersonaEntry(QtWidgets.QGroupBox):
         self.provinciaEntry_label.setText("Provincia")
         self.provinciaEntry_label.setGeometry(QtCore.QRect(430, 30, 51, 16))
         self.provinciaEntry_label.setObjectName("provinciaEntry_label")
+
+        # self.verticalLayout_2.addWidget(self)
+        # self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        # self.verticalLayout.addWidget(self.scrollArea)

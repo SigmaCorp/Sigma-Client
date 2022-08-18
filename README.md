@@ -1,7 +1,18 @@
-# Sigma-Client
-Cliente para Sigma Search que permite buscar datos mediante Open Source Intelligence.
+# Sigma Client
+Sigma Client es una herramienta gráfica que facilita la interacción con la API de [Sigma Search](https://sigma-search.io) y muestra los datos de forma más organizada para el usuario. El software es **Open Source**, lo que garantiza la transparencia y confiabilidad del programa.
 
-![1952396123](https://user-images.githubusercontent.com/74129955/184756259-780d651b-95e9-45a4-aca2-f431fcf37794.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/74129955/185270717-b02838cf-d58b-4f37-a9f7-322263561e36.png" />
+</p>
+
+## Características
+- Login a través de usuario y contraseña
+- Acceso a todos los endpoints de Sigma Search
+- Interfaz gráfica para los resultados
+- Automaticamente utiliza los endpoints correspondientes al plan de la cuenta
+
+## Screenshots
+![client](https://user-images.githubusercontent.com/74129955/185276593-f9542e64-57b7-446e-9f0d-075cbc53c77f.png)
 
 ## Requerimientos
 ```console
@@ -9,9 +20,20 @@ aiohttp==3.7.4.post0
 PyQt5==5.15.7
 ```
 
-## Descarga
-Para utilizar este programa se pueden descargar los binarios compilados disponibles para [Linux](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.5.3/Sigma_client_linux_amd64_v0.5.release) y [Windows](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.5.3/Sigma_client_windows_amd64_v0.5.exe):
+## Instalación
+### Binarios precompilados
+Para utilizar este programa se pueden descargar los binarios precompilados disponibles para [Linux](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.5.3/Sigma_client_linux_amd64_v0.5.release) y [Windows](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.5.3/Sigma_client_windows_amd64_v0.5.exe)
 
-**Latest release:**
+**Latest release:** https://github.com/SigmaCorp/Sigma-Client/releases/tag/v0.5.3
 
-https://github.com/SigmaCorp/Sigma-Client/releases/tag/v0.5.3
+### Source
+También se puede clonar el repositorio y correr el programa desde el script *app.py*
+```console
+git clone https://github.com/SigmaCorp/Sigma-Client
+cd Sigma-Client
+pip install -r requirements.txt
+python app.py
+```
+
+## Creditos
+Todos los derechos reservados por Sigma Corporation.
