@@ -1,14 +1,16 @@
 import asyncio
 
 from datetime import datetime
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui, QtCore
+
 from .interface import Ui_MainWindow
 from .sdk_python import SigmaSDK
 from .international import PeruResolver
-from .utils import retrieve_data
+from .utils import retrieve_data, is_latest_version, get_changelog
 from .entries import PersonaEntry
+from .changelog import Changelog
 
-__version__ = "v0.5.3-release"
+__version__ = "0.5.3"
 
 
 class SigmaClient(Ui_MainWindow):
@@ -18,9 +20,10 @@ class SigmaClient(Ui_MainWindow):
         self.setupUi(mainwindow)
         self.__connect_signals()
         self.__bloquear_peticiones()
+        self.sigma_version_label.setText(f"Sigma Client v{__version__}")
         self.mostrar_mensaje(
             self.mconsole_textBrowser,
-            f"Iniciando Sigma Client build {__version__}",
+            f"Iniciando Sigma Client build v{__version__}",
         )
 
         self.sdk = None
@@ -33,6 +36,8 @@ class SigmaClient(Ui_MainWindow):
             2: "medium",
             3: "standard",
         }
+
+        asyncio.ensure_future(self.checkear_ultima_version())
 
     def __connect_signals(self):
         self.validarLogin_pushButton.clicked.connect(self.validar_login)
@@ -68,6 +73,16 @@ class SigmaClient(Ui_MainWindow):
             self.buscar_vecinos_direccion
         )
 
+        self.p3buscarcvuTitular_pushButton.clicked.connect(
+            self.buscar_datos_cbu
+        )
+
+        self.p3emailBuscar_pushButton.clicked.connect(self.buscar_datos_email)
+
+        self.p3buscarDato_pushButton.clicked.connect(
+            self.buscar_datos_numero_p3
+        )
+
     def __bloquear_peticiones(self):
         self.sbuscardatos_pushButton.setEnabled(False)
         self.sbuscartelefono_pushButton.setEnabled(False)
@@ -80,6 +95,9 @@ class SigmaClient(Ui_MainWindow):
         self.proBuscarVecinos_pushButton.setEnabled(False)
         self.argentina_pushButton.setEnabled(False)
         self.peru_pushButton.setEnabled(False)
+        self.p3buscarcvuTitular_pushButton.setEnabled(False)
+        self.p3emailBuscar_pushButton.setEnabled(False)
+        self.p3buscarDato_pushButton.setEnabled(False)
 
     def __habilitar_peticiones_por_plan(self, plan):
         self.peru_pushButton.setEnabled(True)
@@ -102,6 +120,9 @@ class SigmaClient(Ui_MainWindow):
             self.proBuscarEmail_pushButton.setEnabled(True)
             self.proBuscarNombre_pushButton.setEnabled(True)
             self.proBuscarVecinos_pushButton.setEnabled(True)
+            self.p3buscarcvuTitular_pushButton.setEnabled(True)
+            self.p3emailBuscar_pushButton.setEnabled(True)
+            self.p3buscarDato_pushButton.setEnabled(True)
 
     def __limpiar_tabla(self, tabla):
         while tabla.rowCount() > 0:
@@ -114,6 +135,26 @@ class SigmaClient(Ui_MainWindow):
 
     def mostrar_mensaje(self, consola, msg: str):
         consola.append(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
+
+    async def checkear_ultima_version(self):
+        results = await is_latest_version(__version__)
+        if not results[0]:
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.Information)
+            msg.setText(
+                f"Tu version de Sigma Client es v{__version__} y la version mas reciente es v{results[1]}. Recomendamos que actualices tu cliente para estar al dia con los nuevos resolvers y correciones."
+            )
+            msg.setWindowTitle("Sigma Client Update")
+            msg.buttonClicked.connect(
+                lambda: QtGui.QDesktopServices.openUrl(
+                    QtCore.QUrl("https://github.com/SigmaCorp/Sigma-Client")
+                )
+            )
+            msg.exec_()
+
+        changelog = await get_changelog()
+        self.changelog = Changelog(self, changelog)
+        self.changelog.exec_()
 
     async def async_validar_login(self):
         usuario = self.usuario_lineEdit.text().strip()
@@ -617,6 +658,101 @@ class SigmaClient(Ui_MainWindow):
                         ),
                     )
 
+    async def async_buscar_datos_cbu(self):
+        cbv_or_alias_str = self.p3cbvubuscar_lineEdit.text().strip()
+        self.mostrar_mensaje(
+            self.pro3Console_textBrowser,
+            f"Buscando datos del titular de {cbv_or_alias_str} ...",
+        )
+
+        response = await self.sdk.magic_endpoint(
+            cbv_or_alias_str, "buscar_cbu_alias"
+        )
+
+        if "error" in response:
+            self.mostrar_mensaje(
+                self.pro3Console_textBrowser, response.get("mensaje")
+            )
+        else:
+            self.mostrar_mensaje(
+                self.pro3Console_textBrowser,
+                f"Se encontraron datos del titular de {cbv_or_alias_str}, cargando ...",
+            )
+
+            self.p3titular_output_lineEdit.setText(
+                retrieve_data(response, "nombre")
+            )
+            self.p3cuit_output_lineEdit.setText(
+                retrieve_data(response, "cuit")
+            )
+            self.p3banco_output_lineEdit.setText(
+                retrieve_data(response, "banco")
+            )
+            self.p3tipocuenta_output_lineEdit.setText(
+                retrieve_data(response, "cuenta_tipo")
+            )
+            self.p3cbucvu_output_lineEdit.setText(
+                retrieve_data(response, "cbu")
+            )
+
+    async def async_buscar_datos_email(self):
+        email_str = self.p3emailBuscar_lineEdit.text().strip()
+        self.mostrar_mensaje(
+            self.pro3Console_textBrowser,
+            f"Buscando datos de email {email_str} ...",
+        )
+
+        response = await self.sdk.magic_endpoint(email_str, "buscar_email")
+
+        if "error" in response:
+            self.mostrar_mensaje(
+                self.pro3Console_textBrowser, response.get("mensaje")
+            )
+        else:
+            self.mostrar_mensaje(
+                self.pro3Console_textBrowser,
+                f"Se encontraron datos del email {email_str}, cargando ...",
+            )
+
+            self.p3nombres_output_lineEdit.setText(
+                retrieve_data(response, "nombre")
+            )
+            self.p3apellido_output_lineEdit.setText(
+                retrieve_data(response, "apellido")
+            )
+
+    async def async_buscar_datos_numero_p3(self):
+        numero_str = self.p3numeroBuscar_lineEdit.text().strip()
+        self.mostrar_mensaje(
+            self.pro3Console_textBrowser,
+            f"Buscando datos del numero {numero_str} ...",
+        )
+
+        response = await self.sdk.magic_endpoint(numero_str, "buscar_celular")
+
+        if "error" in response:
+            self.mostrar_mensaje(
+                self.pro3Console_textBrowser, response.get("mensaje")
+            )
+        else:
+            self.mostrar_mensaje(
+                self.pro3Console_textBrowser,
+                f"Se encontraron datos del numero {numero_str}, cargando ...",
+            )
+
+            self.p3nombres2_output_lineEdit.setText(
+                retrieve_data(response, "nombre")
+            )
+            self.p3apellidos2_output_lineEdit.setText(
+                retrieve_data(response, "apellido")
+            )
+            self.p3email_output_lineEdit.setText(
+                retrieve_data(response, "email")
+            )
+            self.p3numero_output_lineEdit.setText(
+                retrieve_data(response, "numero")
+            )
+
     def validar_login(self):
         self.__bloquear_peticiones()
         if (
@@ -671,6 +807,18 @@ class SigmaClient(Ui_MainWindow):
         self.__limpiar_tabla(self.proVecinos_tableWidget)
         if self.proDireccionBuscar_lineEdit.text().strip():
             asyncio.ensure_future(self.async_buscar_vecinos_direccion())
+
+    def buscar_datos_cbu(self):
+        if self.p3cbvubuscar_lineEdit.text().strip():
+            asyncio.ensure_future(self.async_buscar_datos_cbu())
+
+    def buscar_datos_email(self):
+        if self.p3emailBuscar_lineEdit.text().strip():
+            asyncio.ensure_future(self.async_buscar_datos_email())
+
+    def buscar_datos_numero_p3(self):
+        if self.p3numeroBuscar_lineEdit.text().strip():
+            asyncio.ensure_future(self.async_buscar_datos_numero_p3())
 
     def cargar_peru_resolver(self):
         if hasattr(self, "peruResolver"):

@@ -100,9 +100,9 @@ class SigmaSDK:
                     headers=header,
                 ) as response:
                     return await response.json()
-            except KeyError or TypeError:
+            except:
                 raise Exception(
-                    "Alguno de los parametros que ingresaste son incorrectos volve a checkearlos"
+                    "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
                 )
 
     async def dni_resolver_profesional(self, dni, genero):
@@ -116,8 +116,26 @@ class SigmaSDK:
                     headers=header,
                 ) as response:
                     return await response.json()
-            except KeyError or TypeError:
-                raise Exception("La token es invalida")
+            except:
+                raise Exception(
+                    "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
+                )
+
+    async def magic_endpoint(self, dato, metodo):
+        async with aiohttp.ClientSession() as session:
+            header = {"sigma-key": self.sigma_token}
+            data = {"dato": dato, "tipo": metodo}
+            try:
+                async with session.post(
+                    f"https://sigma-search.io/api/sigma/profesional/magic-resolver",
+                    json=data,
+                    headers=header,
+                ) as response:
+                    return await response.json()
+            except:
+                raise Exception(
+                    "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
+                )
 
     @staticmethod
     async def login(username, password):
@@ -130,4 +148,6 @@ class SigmaSDK:
                 ) as response:
                     return await response.json()
             except KeyError or TypeError:
-                raise Exception("El login es invalido")
+                raise Exception(
+                    "Las credenciales son invalidas o estas rate-limited"
+                )
