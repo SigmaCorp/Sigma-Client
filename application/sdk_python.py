@@ -121,6 +121,39 @@ class SigmaSDK:
                     "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
                 )
 
+    async def buscar_nombre(
+        self,
+        nombre,
+        provincia=None,
+        localidad=None,
+        edad_min=0,
+        edad_max=0,
+    ):
+        async with aiohttp.ClientSession() as session:
+            header = {"sigma-key": self.sigma_token}
+
+            data = {"nombre": nombre}
+            if provincia:
+                data["provincia_nombre"] = provincia
+            if localidad:
+                data["localidad"] = localidad
+            if edad_min:
+                data["edad_desde"] = edad_min
+            if edad_max:
+                data["edad_hasta"] = edad_max
+
+            try:
+                async with session.post(
+                    f"https://sigma-search.io/api/sigma/profesional/nombre-resolver",
+                    json=data,
+                    headers=header,
+                ) as response:
+                    return await response.json()
+            except:
+                raise Exception(
+                    "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
+                )
+
     async def magic_endpoint(self, dato, metodo):
         async with aiohttp.ClientSession() as session:
             header = {"sigma-key": self.sigma_token}

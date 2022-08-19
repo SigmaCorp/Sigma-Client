@@ -10,7 +10,7 @@ from .utils import retrieve_data, is_latest_version, get_changelog
 from .entries import PersonaEntry
 from .changelog import Changelog
 
-__version__ = "0.6.0"
+__version__ = "0.6.2"
 
 
 class SigmaClient(Ui_MainWindow):
@@ -582,13 +582,22 @@ class SigmaClient(Ui_MainWindow):
 
     async def async_buscar_personas_nombre(self):
         nombre_str = self.proNombreBuscar_lineEdit.text().strip()
+        provincia_str = self.proProvincia_comboBox.currentText() or None
+        localidad_str = self.proLocalidadBuscar_lineEdit.text().strip() or None
+        edad_min_str = self.proEdadMin_spinBox.value() or None
+        edad_max_str = self.proEdadMax_spinBox.value() or None
+
         self.mostrar_mensaje(
             self.pro2Console_textBrowser,
             f"Buscando personas con nombre '{nombre_str}' ...",
         )
 
-        response = await self.sdk.api_controller(
-            "buscar_persona", "nombre", nombre_str, "profesional"
+        response = await self.sdk.buscar_nombre(
+            nombre_str,
+            provincia_str,
+            localidad_str,
+            edad_min_str,
+            edad_max_str,
         )
 
         if "error" in response:
@@ -605,9 +614,9 @@ class SigmaClient(Ui_MainWindow):
 
                 entry = PersonaEntry(
                     self.scrollArea,
-                    persona["Documento"],
-                    persona["RazonSocial"],
-                    persona["Provincia"],
+                    persona["documento"],
+                    persona["nombre"],
+                    persona["provincia"],
                 )
                 self.verticalLayout_2.addWidget(entry)
                 self.scrollArea.setWidget(self.scrollAreaWidgetContents)

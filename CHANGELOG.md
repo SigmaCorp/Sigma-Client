@@ -1,6 +1,13 @@
 # Change Log
 Todos los cambios realizados en Sigma Client estan listados a continuación.
 
+## Version 0.6.2 (2022-08-19)
+### Implementaciones
+- Filtros para la busqueda de nombres
+
+### Changed
+- Arreglos en la busqueda de nombres
+
 ## Version 0.6.0 (2022-08-18)
 ### Implementaciones
 - El cliente avisa al usuario de nuevas actualizaciones
