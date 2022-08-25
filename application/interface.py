@@ -3,7 +3,6 @@
 from . import resources_rc
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -184,31 +183,31 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 120, 215))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Highlight, brush)
-        brush = QtGui.QBrush(QtGui.QColor(156, 111, 75))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
+        brush = QtGui.QBrush(QtGui.QColor(39, 39, 46))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(39, 39, 46))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
+        brush = QtGui.QBrush(QtGui.QColor(39, 39, 46))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Highlight, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
@@ -232,7 +231,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 120, 215))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Highlight, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
         self.usuario_lineEdit.setPalette(palette)
@@ -271,31 +270,31 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 120, 215))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Highlight, brush)
-        brush = QtGui.QBrush(QtGui.QColor(156, 111, 75))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
+        brush = QtGui.QBrush(QtGui.QColor(39, 39, 46))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(39, 39, 46))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
+        brush = QtGui.QBrush(QtGui.QColor(39, 39, 46))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Highlight, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
@@ -319,7 +318,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 120, 215))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Highlight, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(255, 183, 122))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
         self.password_lineEdit.setPalette(palette)
@@ -2329,6 +2328,699 @@ class Ui_MainWindow(object):
         self.proximamente_label.setAlignment(QtCore.Qt.AlignCenter)
         self.proximamente_label.setObjectName("proximamente_label")
         self.tabWidget.addTab(self.tab_international, "")
+        self.tab_community = QtWidgets.QWidget()
+        self.tab_community.setObjectName("tab_community")
+        self.CMpanelnumeor_groupBox = QtWidgets.QGroupBox(self.tab_community)
+        self.CMpanelnumeor_groupBox.setGeometry(QtCore.QRect(40, 30, 521, 221))
+        self.CMpanelnumeor_groupBox.setStyleSheet("QGroupBox {\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 2px solid rgb(119, 133, 255);\n"
+"    border-radius: 5px;\n"
+"    margin-top: 1ex; /* leave space at the top for the title */\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 0px;\n"
+"    border-top: 1px solid rgb(119, 133, 255);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"    color: white;\n"
+"    border: 1px solid rgb(119, 133, 255);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: gray;\n"
+"    background: none;\n"
+"}")
+        self.CMpanelnumeor_groupBox.setAlignment(QtCore.Qt.AlignCenter)
+        self.CMpanelnumeor_groupBox.setFlat(False)
+        self.CMpanelnumeor_groupBox.setObjectName("CMpanelnumeor_groupBox")
+        self.CMnombres2_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelnumeor_groupBox)
+        self.CMnombres2_output_lineEdit.setGeometry(QtCore.QRect(20, 60, 221, 22))
+        self.CMnombres2_output_lineEdit.setText("")
+        self.CMnombres2_output_lineEdit.setReadOnly(True)
+        self.CMnombres2_output_lineEdit.setObjectName("CMnombres2_output_lineEdit")
+        self.nombres_label_2 = QtWidgets.QLabel(self.CMpanelnumeor_groupBox)
+        self.nombres_label_2.setGeometry(QtCore.QRect(20, 40, 71, 16))
+        self.nombres_label_2.setObjectName("nombres_label_2")
+        self.CMemail_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelnumeor_groupBox)
+        self.CMemail_output_lineEdit.setGeometry(QtCore.QRect(20, 120, 221, 22))
+        self.CMemail_output_lineEdit.setText("")
+        self.CMemail_output_lineEdit.setReadOnly(True)
+        self.CMemail_output_lineEdit.setObjectName("CMemail_output_lineEdit")
+        self.email_label_2 = QtWidgets.QLabel(self.CMpanelnumeor_groupBox)
+        self.email_label_2.setGeometry(QtCore.QRect(20, 100, 51, 16))
+        self.email_label_2.setObjectName("email_label_2")
+        self.CMnumero_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelnumeor_groupBox)
+        self.CMnumero_output_lineEdit.setGeometry(QtCore.QRect(270, 120, 221, 22))
+        self.CMnumero_output_lineEdit.setText("")
+        self.CMnumero_output_lineEdit.setReadOnly(True)
+        self.CMnumero_output_lineEdit.setObjectName("CMnumero_output_lineEdit")
+        self.numer_label_2 = QtWidgets.QLabel(self.CMpanelnumeor_groupBox)
+        self.numer_label_2.setGeometry(QtCore.QRect(270, 100, 61, 16))
+        self.numer_label_2.setObjectName("numer_label_2")
+        self.CMapellidos2_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelnumeor_groupBox)
+        self.CMapellidos2_output_lineEdit.setGeometry(QtCore.QRect(270, 60, 221, 22))
+        self.CMapellidos2_output_lineEdit.setText("")
+        self.CMapellidos2_output_lineEdit.setReadOnly(True)
+        self.CMapellidos2_output_lineEdit.setObjectName("CMapellidos2_output_lineEdit")
+        self.apellido_label_2 = QtWidgets.QLabel(self.CMpanelnumeor_groupBox)
+        self.apellido_label_2.setGeometry(QtCore.QRect(270, 40, 71, 16))
+        self.apellido_label_2.setObjectName("apellido_label_2")
+        self.numberoabuscar_label_2 = QtWidgets.QLabel(self.CMpanelnumeor_groupBox)
+        self.numberoabuscar_label_2.setGeometry(QtCore.QRect(20, 160, 171, 16))
+        self.numberoabuscar_label_2.setObjectName("numberoabuscar_label_2")
+        self.CMnumeroBuscar_lineEdit = QtWidgets.QLineEdit(self.CMpanelnumeor_groupBox)
+        self.CMnumeroBuscar_lineEdit.setGeometry(QtCore.QRect(20, 180, 301, 22))
+        self.CMnumeroBuscar_lineEdit.setStyleSheet("QLineEdit {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background-color: rgb(39, 39, 46);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit::hover {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}")
+        self.CMnumeroBuscar_lineEdit.setText("")
+        self.CMnumeroBuscar_lineEdit.setReadOnly(False)
+        self.CMnumeroBuscar_lineEdit.setObjectName("CMnumeroBuscar_lineEdit")
+        self.CMbuscarDato_pushButton = QtWidgets.QPushButton(self.CMpanelnumeor_groupBox)
+        self.CMbuscarDato_pushButton.setEnabled(True)
+        self.CMbuscarDato_pushButton.setGeometry(QtCore.QRect(350, 180, 141, 24))
+        self.CMbuscarDato_pushButton.setStyleSheet("QPushButton {\n"
+"    color: rgb(255, 183, 122);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::disabled {\n"
+"    color: gray;\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    color: rgb(255, 133, 65);\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"    color: rgb(255, 133, 65);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}")
+        self.CMbuscarDato_pushButton.setObjectName("CMbuscarDato_pushButton")
+        self.CMpanelNumeros_groupBox = QtWidgets.QGroupBox(self.tab_community)
+        self.CMpanelNumeros_groupBox.setGeometry(QtCore.QRect(40, 270, 521, 331))
+        self.CMpanelNumeros_groupBox.setStyleSheet("QGroupBox {\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 2px solid rgb(119, 133, 255);\n"
+"    border-radius: 5px;\n"
+"    margin-top: 1ex; /* leave space at the top for the title */\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 0px;\n"
+"    border-top: 1px solid rgb(119, 133, 255);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"    color: white;\n"
+"    border: 1px solid rgb(119, 133, 255);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: gray;\n"
+"}")
+        self.CMpanelNumeros_groupBox.setAlignment(QtCore.Qt.AlignCenter)
+        self.CMpanelNumeros_groupBox.setFlat(False)
+        self.CMpanelNumeros_groupBox.setObjectName("CMpanelNumeros_groupBox")
+        self.CMnumeroBuscar_lineEdit_2 = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMnumeroBuscar_lineEdit_2.setGeometry(QtCore.QRect(20, 290, 301, 22))
+        self.CMnumeroBuscar_lineEdit_2.setStyleSheet("QLineEdit {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background-color: rgb(39, 39, 46);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit::hover {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}")
+        self.CMnumeroBuscar_lineEdit_2.setText("")
+        self.CMnumeroBuscar_lineEdit_2.setReadOnly(False)
+        self.CMnumeroBuscar_lineEdit_2.setObjectName("CMnumeroBuscar_lineEdit_2")
+        self.numberoabuscar_label_3 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.numberoabuscar_label_3.setGeometry(QtCore.QRect(20, 270, 171, 16))
+        self.numberoabuscar_label_3.setObjectName("numberoabuscar_label_3")
+        self.CMbuscarDato_pushButton_2 = QtWidgets.QPushButton(self.CMpanelNumeros_groupBox)
+        self.CMbuscarDato_pushButton_2.setEnabled(True)
+        self.CMbuscarDato_pushButton_2.setGeometry(QtCore.QRect(350, 290, 141, 24))
+        self.CMbuscarDato_pushButton_2.setStyleSheet("QPushButton {\n"
+"    color: rgb(255, 183, 122);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::disabled {\n"
+"    color: gray;\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    color: rgb(255, 133, 65);\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"    color: rgb(255, 133, 65);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}")
+        self.CMbuscarDato_pushButton_2.setObjectName("CMbuscarDato_pushButton_2")
+        self.CMnombre_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMnombre_output_lineEdit.setGeometry(QtCore.QRect(270, 50, 221, 22))
+        self.CMnombre_output_lineEdit.setText("")
+        self.CMnombre_output_lineEdit.setReadOnly(True)
+        self.CMnombre_output_lineEdit.setObjectName("CMnombre_output_lineEdit")
+        self.email_label_3 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.email_label_3.setGeometry(QtCore.QRect(20, 90, 81, 16))
+        self.email_label_3.setObjectName("email_label_3")
+        self.apellido_label_3 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.apellido_label_3.setGeometry(QtCore.QRect(20, 30, 81, 16))
+        self.apellido_label_3.setObjectName("apellido_label_3")
+        self.numer_label_3 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.numer_label_3.setGeometry(QtCore.QRect(270, 30, 61, 16))
+        self.numer_label_3.setObjectName("numer_label_3")
+        self.CMdireccion_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMdireccion_output_lineEdit.setGeometry(QtCore.QRect(20, 110, 221, 22))
+        self.CMdireccion_output_lineEdit.setText("")
+        self.CMdireccion_output_lineEdit.setReadOnly(True)
+        self.CMdireccion_output_lineEdit.setObjectName("CMdireccion_output_lineEdit")
+        self.CMdocumento_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMdocumento_output_lineEdit.setGeometry(QtCore.QRect(20, 50, 221, 22))
+        self.CMdocumento_output_lineEdit.setText("")
+        self.CMdocumento_output_lineEdit.setReadOnly(True)
+        self.CMdocumento_output_lineEdit.setObjectName("CMdocumento_output_lineEdit")
+        self.email_label_4 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.email_label_4.setGeometry(QtCore.QRect(270, 90, 81, 16))
+        self.email_label_4.setObjectName("email_label_4")
+        self.CMlocalidad_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMlocalidad_output_lineEdit.setGeometry(QtCore.QRect(270, 110, 221, 22))
+        self.CMlocalidad_output_lineEdit.setText("")
+        self.CMlocalidad_output_lineEdit.setReadOnly(True)
+        self.CMlocalidad_output_lineEdit.setObjectName("CMlocalidad_output_lineEdit")
+        self.CMprovincia_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMprovincia_output_lineEdit.setGeometry(QtCore.QRect(20, 170, 221, 22))
+        self.CMprovincia_output_lineEdit.setText("")
+        self.CMprovincia_output_lineEdit.setReadOnly(True)
+        self.CMprovincia_output_lineEdit.setObjectName("CMprovincia_output_lineEdit")
+        self.email_label_5 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.email_label_5.setGeometry(QtCore.QRect(20, 150, 81, 16))
+        self.email_label_5.setObjectName("email_label_5")
+        self.CMcodigopostal_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMcodigopostal_output_lineEdit.setGeometry(QtCore.QRect(270, 170, 221, 22))
+        self.CMcodigopostal_output_lineEdit.setText("")
+        self.CMcodigopostal_output_lineEdit.setReadOnly(True)
+        self.CMcodigopostal_output_lineEdit.setObjectName("CMcodigopostal_output_lineEdit")
+        self.email_label_6 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.email_label_6.setGeometry(QtCore.QRect(270, 150, 81, 16))
+        self.email_label_6.setObjectName("email_label_6")
+        self.email_label_7 = QtWidgets.QLabel(self.CMpanelNumeros_groupBox)
+        self.email_label_7.setGeometry(QtCore.QRect(20, 210, 81, 16))
+        self.email_label_7.setObjectName("email_label_7")
+        self.CMempresa_output_lineEdit = QtWidgets.QLineEdit(self.CMpanelNumeros_groupBox)
+        self.CMempresa_output_lineEdit.setGeometry(QtCore.QRect(20, 230, 471, 22))
+        self.CMempresa_output_lineEdit.setText("")
+        self.CMempresa_output_lineEdit.setReadOnly(True)
+        self.CMempresa_output_lineEdit.setObjectName("CMempresa_output_lineEdit")
+        self.panelEmail_groupBox_2 = QtWidgets.QGroupBox(self.tab_community)
+        self.panelEmail_groupBox_2.setGeometry(QtCore.QRect(580, 440, 521, 161))
+        self.panelEmail_groupBox_2.setStyleSheet("QGroupBox {\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 2px solid rgb(119, 133, 255);\n"
+"    border-radius: 5px;\n"
+"    margin-top: 1ex; /* leave space at the top for the title */\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 0px;\n"
+"    border-top: 1px solid rgb(119, 133, 255);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"    color: white;\n"
+"    border: 1px solid rgb(119, 133, 255);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: gray;\n"
+"    background: none;\n"
+"}")
+        self.panelEmail_groupBox_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.panelEmail_groupBox_2.setFlat(False)
+        self.panelEmail_groupBox_2.setObjectName("panelEmail_groupBox_2")
+        self.CMnombres_output_lineEdit = QtWidgets.QLineEdit(self.panelEmail_groupBox_2)
+        self.CMnombres_output_lineEdit.setGeometry(QtCore.QRect(20, 60, 221, 22))
+        self.CMnombres_output_lineEdit.setText("")
+        self.CMnombres_output_lineEdit.setReadOnly(True)
+        self.CMnombres_output_lineEdit.setObjectName("CMnombres_output_lineEdit")
+        self.p3nombres_label_2 = QtWidgets.QLabel(self.panelEmail_groupBox_2)
+        self.p3nombres_label_2.setGeometry(QtCore.QRect(20, 40, 71, 16))
+        self.p3nombres_label_2.setObjectName("p3nombres_label_2")
+        self.CMapellido_output_lineEdit = QtWidgets.QLineEdit(self.panelEmail_groupBox_2)
+        self.CMapellido_output_lineEdit.setGeometry(QtCore.QRect(270, 60, 221, 22))
+        self.CMapellido_output_lineEdit.setText("")
+        self.CMapellido_output_lineEdit.setReadOnly(True)
+        self.CMapellido_output_lineEdit.setObjectName("CMapellido_output_lineEdit")
+        self.p3apellido_label_2 = QtWidgets.QLabel(self.panelEmail_groupBox_2)
+        self.p3apellido_label_2.setGeometry(QtCore.QRect(270, 40, 101, 16))
+        self.p3apellido_label_2.setObjectName("p3apellido_label_2")
+        self.p3emailBuscar_label_2 = QtWidgets.QLabel(self.panelEmail_groupBox_2)
+        self.p3emailBuscar_label_2.setGeometry(QtCore.QRect(20, 100, 171, 16))
+        self.p3emailBuscar_label_2.setObjectName("p3emailBuscar_label_2")
+        self.CMemailBuscar_lineEdit = QtWidgets.QLineEdit(self.panelEmail_groupBox_2)
+        self.CMemailBuscar_lineEdit.setGeometry(QtCore.QRect(20, 120, 301, 22))
+        self.CMemailBuscar_lineEdit.setStyleSheet("QLineEdit {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background-color: rgb(39, 39, 46);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit::hover {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}")
+        self.CMemailBuscar_lineEdit.setText("")
+        self.CMemailBuscar_lineEdit.setReadOnly(False)
+        self.CMemailBuscar_lineEdit.setObjectName("CMemailBuscar_lineEdit")
+        self.CMemailBuscar_pushButton = QtWidgets.QPushButton(self.panelEmail_groupBox_2)
+        self.CMemailBuscar_pushButton.setEnabled(True)
+        self.CMemailBuscar_pushButton.setGeometry(QtCore.QRect(350, 120, 141, 24))
+        self.CMemailBuscar_pushButton.setStyleSheet("QPushButton {\n"
+"    color: rgb(255, 183, 122);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::disabled {\n"
+"    color: gray;\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    color: rgb(255, 133, 65);\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"    color: rgb(255, 133, 65);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}")
+        self.CMemailBuscar_pushButton.setObjectName("CMemailBuscar_pushButton")
+        self.CMinformacion_groupBox = QtWidgets.QGroupBox(self.tab_community)
+        self.CMinformacion_groupBox.setGeometry(QtCore.QRect(580, 30, 521, 241))
+        self.CMinformacion_groupBox.setStyleSheet("QGroupBox {\n"
+"    color: rgb(255, 255, 255);\n"
+"    background: None;\n"
+"    border: 2px solid rgb(119, 133, 255);;\n"
+"    border-radius: 5px;\n"
+"    margin-top: 1ex;\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 0px;\n"
+"    border-top: 1px solid rgb(119, 133, 255);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    background: transparent;\n"
+"    color: white;\n"
+"}")
+        self.CMinformacion_groupBox.setTitle("")
+        self.CMinformacion_groupBox.setAlignment(QtCore.Qt.AlignCenter)
+        self.CMinformacion_groupBox.setFlat(False)
+        self.CMinformacion_groupBox.setObjectName("CMinformacion_groupBox")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.CMinformacion_groupBox)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.CMInfo_textEdit = QtWidgets.QTextEdit(self.CMinformacion_groupBox)
+        self.CMInfo_textEdit.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.CMInfo_textEdit.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.CMInfo_textEdit.setReadOnly(True)
+        self.CMInfo_textEdit.setObjectName("CMInfo_textEdit")
+        self.verticalLayout_3.addWidget(self.CMInfo_textEdit)
+        self.CMConsole_textBrowser = QtWidgets.QTextBrowser(self.tab_community)
+        self.CMConsole_textBrowser.setGeometry(QtCore.QRect(580, 290, 521, 131))
+        self.CMConsole_textBrowser.setStyleSheet("QTextBrowser {\n"
+"    color: white;\n"
+"    background-color: rgb(0, 0, 0);\n"
+"}")
+        self.CMConsole_textBrowser.setObjectName("CMConsole_textBrowser")
+        self.tabWidget.addTab(self.tab_community, "")
+        self.tab_reports = QtWidgets.QWidget()
+        self.tab_reports.setObjectName("tab_reports")
+        self.reportes_groupBox = QtWidgets.QGroupBox(self.tab_reports)
+        self.reportes_groupBox.setGeometry(QtCore.QRect(10, 20, 711, 591))
+        self.reportes_groupBox.setStyleSheet("QGroupBox {\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 2px solid rgb(119, 133, 255);\n"
+"    border-radius: 5px;\n"
+"    margin-top: 1ex;\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 0px;\n"
+"    border-top: 1px solid rgb(119, 133, 255);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background-color: rgb(39, 39, 46);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLineEdit::hover {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: gray;\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background: none;\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::disabled {\n"
+"    color: gray;\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    color: rgb(255, 133, 65);\n"
+"    background: none;\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"    color: rgb(255, 133, 65);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 183, 122);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QTextBrowser {\n"
+"    color: white;\n"
+"    background-color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background-color: rgb(39, 39, 46);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QComboBox::hover {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QListView {\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QPlainTextEdit {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background-color: rgb(39, 39, 46);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QPlainTextEdit::hover {\n"
+"    color: rgb(255, 183, 122);\n"
+"    background: none;\n"
+"    background-color: rgb(54, 54, 54);\n"
+"    border: 1px solid rgb(255, 133, 65);\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-radius: 2px;\n"
+"}")
+        self.reportes_groupBox.setAlignment(QtCore.Qt.AlignCenter)
+        self.reportes_groupBox.setFlat(False)
+        self.reportes_groupBox.setObjectName("reportes_groupBox")
+        self.tipoVulnerabilidad_comboBox = QtWidgets.QComboBox(self.reportes_groupBox)
+        self.tipoVulnerabilidad_comboBox.setGeometry(QtCore.QRect(160, 60, 241, 22))
+        self.tipoVulnerabilidad_comboBox.setObjectName("tipoVulnerabilidad_comboBox")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.setItemText(0, "")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipoVulnerabilidad_comboBox.addItem("")
+        self.tipovuln_label = QtWidgets.QLabel(self.reportes_groupBox)
+        self.tipovuln_label.setGeometry(QtCore.QRect(160, 36, 141, 20))
+        self.tipovuln_label.setObjectName("tipovuln_label")
+        self.recurso_label = QtWidgets.QLabel(self.reportes_groupBox)
+        self.recurso_label.setGeometry(QtCore.QRect(420, 36, 61, 20))
+        self.recurso_label.setObjectName("recurso_label")
+        self.recurso_comboBox = QtWidgets.QComboBox(self.reportes_groupBox)
+        self.recurso_comboBox.setGeometry(QtCore.QRect(420, 60, 161, 22))
+        self.recurso_comboBox.setObjectName("recurso_comboBox")
+        self.recurso_comboBox.addItem("")
+        self.recurso_comboBox.setItemText(0, "")
+        self.recurso_comboBox.addItem("")
+        self.recurso_comboBox.addItem("")
+        self.nivelImpacto_comboBox = QtWidgets.QComboBox(self.reportes_groupBox)
+        self.nivelImpacto_comboBox.setGeometry(QtCore.QRect(600, 60, 91, 22))
+        self.nivelImpacto_comboBox.setObjectName("nivelImpacto_comboBox")
+        self.nivelImpacto_comboBox.addItem("")
+        self.nivelImpacto_comboBox.setItemText(0, "")
+        self.nivelImpacto_comboBox.addItem("")
+        self.nivelImpacto_comboBox.addItem("")
+        self.nivelImpacto_comboBox.addItem("")
+        self.nivelImpacto_comboBox.addItem("")
+        self.nivelimpact_label = QtWidgets.QLabel(self.reportes_groupBox)
+        self.nivelimpact_label.setGeometry(QtCore.QRect(600, 36, 101, 20))
+        self.nivelimpact_label.setObjectName("nivelimpact_label")
+        self.discordid_lineEdit = QtWidgets.QLineEdit(self.reportes_groupBox)
+        self.discordid_lineEdit.setGeometry(QtCore.QRect(20, 60, 121, 22))
+        self.discordid_lineEdit.setText("")
+        self.discordid_lineEdit.setReadOnly(False)
+        self.discordid_lineEdit.setObjectName("discordid_lineEdit")
+        self.discord_id_label = QtWidgets.QLabel(self.reportes_groupBox)
+        self.discord_id_label.setGeometry(QtCore.QRect(20, 36, 141, 21))
+        self.discord_id_label.setObjectName("discord_id_label")
+        self.tituloreporte_label = QtWidgets.QLabel(self.reportes_groupBox)
+        self.tituloreporte_label.setGeometry(QtCore.QRect(20, 110, 61, 21))
+        self.tituloreporte_label.setObjectName("tituloreporte_label")
+        self.tituloreporte_lineEdit = QtWidgets.QLineEdit(self.reportes_groupBox)
+        self.tituloreporte_lineEdit.setGeometry(QtCore.QRect(20, 130, 671, 22))
+        self.tituloreporte_lineEdit.setText("")
+        self.tituloreporte_lineEdit.setReadOnly(False)
+        self.tituloreporte_lineEdit.setObjectName("tituloreporte_lineEdit")
+        self.descripcionreporte_label = QtWidgets.QLabel(self.reportes_groupBox)
+        self.descripcionreporte_label.setGeometry(QtCore.QRect(20, 170, 101, 21))
+        self.descripcionreporte_label.setObjectName("descripcionreporte_label")
+        self.descripcionreporte_plainTextEdit = QtWidgets.QPlainTextEdit(self.reportes_groupBox)
+        self.descripcionreporte_plainTextEdit.setGeometry(QtCore.QRect(20, 200, 671, 221))
+        self.descripcionreporte_plainTextEdit.setObjectName("descripcionreporte_plainTextEdit")
+        self.impactoreporte_label = QtWidgets.QLabel(self.reportes_groupBox)
+        self.impactoreporte_label.setGeometry(QtCore.QRect(20, 430, 81, 21))
+        self.impactoreporte_label.setObjectName("impactoreporte_label")
+        self.impactoreporte_plainTextEdit = QtWidgets.QPlainTextEdit(self.reportes_groupBox)
+        self.impactoreporte_plainTextEdit.setGeometry(QtCore.QRect(20, 460, 671, 71))
+        self.impactoreporte_plainTextEdit.setObjectName("impactoreporte_plainTextEdit")
+        self.enviarReporte_pushButton = QtWidgets.QPushButton(self.reportes_groupBox)
+        self.enviarReporte_pushButton.setEnabled(True)
+        self.enviarReporte_pushButton.setGeometry(QtCore.QRect(20, 550, 671, 24))
+        self.enviarReporte_pushButton.setObjectName("enviarReporte_pushButton")
+        self.reporteDisclosure_groupBox = QtWidgets.QGroupBox(self.tab_reports)
+        self.reporteDisclosure_groupBox.setGeometry(QtCore.QRect(730, 20, 401, 281))
+        self.reporteDisclosure_groupBox.setStyleSheet("QGroupBox {\n"
+"    color: rgb(255, 255, 255);\n"
+"    background: None;\n"
+"    border: 2px solid rgb(119, 133, 255);;\n"
+"    border-radius: 5px;\n"
+"    margin-top: 1ex;\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 0px;\n"
+"    border-top: 1px solid rgb(119, 133, 255);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    background: transparent;\n"
+"    color: white;\n"
+"}")
+        self.reporteDisclosure_groupBox.setTitle("")
+        self.reporteDisclosure_groupBox.setAlignment(QtCore.Qt.AlignCenter)
+        self.reporteDisclosure_groupBox.setFlat(False)
+        self.reporteDisclosure_groupBox.setObjectName("reporteDisclosure_groupBox")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.reporteDisclosure_groupBox)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.reporteDisclosure_textEdit = QtWidgets.QTextEdit(self.reporteDisclosure_groupBox)
+        self.reporteDisclosure_textEdit.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.reporteDisclosure_textEdit.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.reporteDisclosure_textEdit.setReadOnly(True)
+        self.reporteDisclosure_textEdit.setObjectName("reporteDisclosure_textEdit")
+        self.verticalLayout_4.addWidget(self.reporteDisclosure_textEdit)
+        self.halloffame_groupBox = QtWidgets.QGroupBox(self.tab_reports)
+        self.halloffame_groupBox.setGeometry(QtCore.QRect(730, 310, 401, 171))
+        self.halloffame_groupBox.setStyleSheet("QGroupBox {\n"
+"    color: rgb(255, 255, 255);\n"
+"    background: None;\n"
+"    border: 2px solid rgb(119, 133, 255);;\n"
+"    border-radius: 5px;\n"
+"    margin-top: 1ex;\n"
+"}\n"
+"\n"
+"QGroupBox::title {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 0px;\n"
+"    border-top: 1px solid rgb(119, 133, 255);\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    background: transparent;\n"
+"    color: white;\n"
+"}")
+        self.halloffame_groupBox.setTitle("")
+        self.halloffame_groupBox.setAlignment(QtCore.Qt.AlignCenter)
+        self.halloffame_groupBox.setFlat(False)
+        self.halloffame_groupBox.setObjectName("halloffame_groupBox")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.halloffame_groupBox)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.halloffame_textEdit = QtWidgets.QTextEdit(self.halloffame_groupBox)
+        self.halloffame_textEdit.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.halloffame_textEdit.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.halloffame_textEdit.setReadOnly(True)
+        self.halloffame_textEdit.setObjectName("halloffame_textEdit")
+        self.verticalLayout_5.addWidget(self.halloffame_textEdit)
+        self.reports_textBrowser = QtWidgets.QTextBrowser(self.tab_reports)
+        self.reports_textBrowser.setGeometry(QtCore.QRect(730, 490, 401, 121))
+        self.reports_textBrowser.setStyleSheet("QTextBrowser {\n"
+"    color: white;\n"
+"    background-color: rgb(0, 0, 0);\n"
+"}")
+        self.reports_textBrowser.setObjectName("reports_textBrowser")
+        self.tabWidget.addTab(self.tab_reports, "")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -2502,7 +3194,7 @@ class Ui_MainWindow(object):
         self.obrassociales_label.setText(_translate("MainWindow", "Obras sociales"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_profesional), _translate("MainWindow", "Profesional"))
         self.pro2dashboard_groupBox.setTitle(_translate("MainWindow", "Dashboard"))
-        self.proNombrebusc_label.setText(_translate("MainWindow", "Nombre a buscar"))
+        self.proNombrebusc_label.setText(_translate("MainWindow", "Nombre/DNI a buscar"))
         self.proBuscarNombre_pushButton.setText(_translate("MainWindow", "Buscar por nombre"))
         self.pro2Console_textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
@@ -2589,3 +3281,85 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_profesional_5), _translate("MainWindow", "Profesional III"))
         self.proximamente_label.setText(_translate("MainWindow", "Proximamente"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_international), _translate("MainWindow", "International"))
+        self.CMpanelnumeor_groupBox.setTitle(_translate("MainWindow", "Panel de datos por numero II (community)"))
+        self.nombres_label_2.setText(_translate("MainWindow", "Nombres"))
+        self.email_label_2.setText(_translate("MainWindow", "Email"))
+        self.numer_label_2.setText(_translate("MainWindow", "Numero"))
+        self.apellido_label_2.setText(_translate("MainWindow", "Apellido"))
+        self.numberoabuscar_label_2.setText(_translate("MainWindow", "Numero a buscar"))
+        self.CMbuscarDato_pushButton.setText(_translate("MainWindow", "Buscar datos"))
+        self.CMpanelNumeros_groupBox.setTitle(_translate("MainWindow", "Panel de datos por numero (community)"))
+        self.numberoabuscar_label_3.setText(_translate("MainWindow", "Numero a buscar"))
+        self.CMbuscarDato_pushButton_2.setText(_translate("MainWindow", "Buscar datos"))
+        self.email_label_3.setText(_translate("MainWindow", "Direccion"))
+        self.apellido_label_3.setText(_translate("MainWindow", "Documento"))
+        self.numer_label_3.setText(_translate("MainWindow", "Nombre"))
+        self.email_label_4.setText(_translate("MainWindow", "Localidad"))
+        self.email_label_5.setText(_translate("MainWindow", "Provincia"))
+        self.email_label_6.setText(_translate("MainWindow", "Codigo Postal"))
+        self.email_label_7.setText(_translate("MainWindow", "Empresa"))
+        self.panelEmail_groupBox_2.setTitle(_translate("MainWindow", "Panel de datos por email (community)"))
+        self.p3nombres_label_2.setText(_translate("MainWindow", "Nombres"))
+        self.p3apellido_label_2.setText(_translate("MainWindow", "Apellido"))
+        self.p3emailBuscar_label_2.setText(_translate("MainWindow", "Email a buscar"))
+        self.CMemailBuscar_pushButton.setText(_translate("MainWindow", "Buscar por email"))
+        self.CMInfo_textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">Community</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Los endpoints presentados en esta pagina estan disponibles de forma gratuita con uso limitado para aquellos miembros de comunidades amigas que deseen testear y formar parte de nuestro vulnerability disclosure program.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Los datos presentados se muestran </span><span style=\" font-size:12pt; font-weight:700;\">parcialmente</span><span style=\" font-size:12pt;\">, para informes completos se requiere la compra de un plan en Sigma Search.</span></p></body></html>"))
+        self.CMConsole_textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_community), _translate("MainWindow", "Community"))
+        self.reportes_groupBox.setTitle(_translate("MainWindow", "Reportes"))
+        self.tipoVulnerabilidad_comboBox.setItemText(1, _translate("MainWindow", "A01 Broken Access Control"))
+        self.tipoVulnerabilidad_comboBox.setItemText(2, _translate("MainWindow", "A02 Cryptographic Failures"))
+        self.tipoVulnerabilidad_comboBox.setItemText(3, _translate("MainWindow", "A03 Injection"))
+        self.tipoVulnerabilidad_comboBox.setItemText(4, _translate("MainWindow", "A04 Insecure Design"))
+        self.tipoVulnerabilidad_comboBox.setItemText(5, _translate("MainWindow", "A05 Security Misconfiguration"))
+        self.tipoVulnerabilidad_comboBox.setItemText(6, _translate("MainWindow", "A06 Vulnerable and Outdated Components"))
+        self.tipoVulnerabilidad_comboBox.setItemText(7, _translate("MainWindow", "A07 Identification and Authentication Failures"))
+        self.tipoVulnerabilidad_comboBox.setItemText(8, _translate("MainWindow", "A08 Software and Data Integrity Failures"))
+        self.tipoVulnerabilidad_comboBox.setItemText(9, _translate("MainWindow", "A09 Security Logging and Monitoring Failures"))
+        self.tipoVulnerabilidad_comboBox.setItemText(10, _translate("MainWindow", "A10 Server Side Request Forgery (SSRF)"))
+        self.tipovuln_label.setText(_translate("MainWindow", "Tipo de vunerabilidad *"))
+        self.recurso_label.setText(_translate("MainWindow", "Recurso *"))
+        self.recurso_comboBox.setItemText(1, _translate("MainWindow", "Sigma Intelligence WebApp"))
+        self.recurso_comboBox.setItemText(2, _translate("MainWindow", "Sigma Intelligence Client"))
+        self.nivelImpacto_comboBox.setItemText(1, _translate("MainWindow", "Low"))
+        self.nivelImpacto_comboBox.setItemText(2, _translate("MainWindow", "Medium"))
+        self.nivelImpacto_comboBox.setItemText(3, _translate("MainWindow", "High"))
+        self.nivelImpacto_comboBox.setItemText(4, _translate("MainWindow", "Critical"))
+        self.nivelimpact_label.setText(_translate("MainWindow", "Nivel impacto *"))
+        self.discord_id_label.setText(_translate("MainWindow", "Discord ID *"))
+        self.tituloreporte_label.setText(_translate("MainWindow", "Titulo *"))
+        self.descripcionreporte_label.setText(_translate("MainWindow", "Descripcion *"))
+        self.impactoreporte_label.setText(_translate("MainWindow", "Impacto *"))
+        self.enviarReporte_pushButton.setText(_translate("MainWindow", "Enviar"))
+        self.reporteDisclosure_textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">Vunerability Disclosure Program</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Los investigadores que sean los primeros en informar una vulnerabilidad serán los investigadores reconocidos en los changelogs  y <span style=\" font-weight:700;\">Hall of Fame</span> una vez que se resuelva la vulnerabilidad. Si hay miembros adicionales del equipo involucrados en la investigación de la vulnerabilidad, proporcione sus nombres y cuál fue su contribución a los hallazgos al enviar este informe.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Out of scope</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Rate-limit bypass, DoS/DDoS y vulnerabilidad sin impacto.</p></body></html>"))
+        self.halloffame_textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt;\">Hall of Fame</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.reports_textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_reports), _translate("MainWindow", "Reports"))

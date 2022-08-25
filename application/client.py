@@ -35,6 +35,7 @@ class SigmaClient(Ui_MainWindow):
             1: "profesional",
             2: "medium",
             3: "standard",
+            4: "comunidades",
         }
 
         asyncio.ensure_future(self.checkear_ultima_version())
@@ -83,6 +84,20 @@ class SigmaClient(Ui_MainWindow):
             self.buscar_datos_numero_p3
         )
 
+        self.CMbuscarDato_pushButton_2.clicked.connect(
+            self.community_buscar_num_comun
+        )
+
+        self.CMbuscarDato_pushButton.clicked.connect(
+            self.community_buscar_num_magic
+        )
+
+        self.CMemailBuscar_pushButton.clicked.connect(
+            self.community_buscar_email_magic
+        )
+
+        self.enviarReporte_pushButton.clicked.connect(self.enviar_reporte)
+
     def __bloquear_peticiones(self):
         self.sbuscardatos_pushButton.setEnabled(False)
         self.sbuscartelefono_pushButton.setEnabled(False)
@@ -98,10 +113,20 @@ class SigmaClient(Ui_MainWindow):
         self.p3buscarcvuTitular_pushButton.setEnabled(False)
         self.p3emailBuscar_pushButton.setEnabled(False)
         self.p3buscarDato_pushButton.setEnabled(False)
+        self.CMbuscarDato_pushButton.setEnabled(False)
+        self.CMbuscarDato_pushButton_2.setEnabled(False)
+        self.CMemailBuscar_pushButton.setEnabled(False)
+        self.enviarReporte_pushButton.setEnabled(False)
 
     def __habilitar_peticiones_por_plan(self, plan):
-        self.peru_pushButton.setEnabled(True)
+        if plan == 4:
+            self.CMbuscarDato_pushButton.setEnabled(True)
+            self.CMbuscarDato_pushButton_2.setEnabled(True)
+            self.CMemailBuscar_pushButton.setEnabled(True)
+            self.enviarReporte_pushButton.setEnabled(True)
+            return
 
+        self.peru_pushButton.setEnabled(True)
         if plan == 0:
             return
 
@@ -762,6 +787,96 @@ class SigmaClient(Ui_MainWindow):
                 retrieve_data(response, "numero")
             )
 
+    async def async_community_search(self, data, method):
+        endpoint = {
+            "num_arg": "/api/sigma/comunidades/hack4u/num_resolver/argentina",
+            "magic": "/api/sigma/comunidades/hack4u/magic_resolver/argentina",
+        }[method]
+
+        self.mostrar_mensaje(
+            self.CMConsole_textBrowser,
+            f"Buscando {data} ...",
+        )
+
+        response = await self.sdk.hack4u_community(data, endpoint)
+
+        if "error" in response:
+            self.mostrar_mensaje(self.CMConsole_textBrowser, response)
+        else:
+            if method == "num_arg":
+                self.CMdocumento_output_lineEdit.setText(
+                    retrieve_data(response, "documento")
+                )
+                self.CMnombre_output_lineEdit.setText(
+                    retrieve_data(response, "nombre")
+                )
+                self.CMdireccion_output_lineEdit.setText(
+                    retrieve_data(response, "direccion")
+                )
+                self.CMlocalidad_output_lineEdit.setText(
+                    retrieve_data(response, "localidad")
+                )
+                self.CMprovincia_output_lineEdit.setText(
+                    retrieve_data(response, "provincia")
+                )
+                self.CMcodigopostal_output_lineEdit.setText(
+                    retrieve_data(response, "codigo_postal")
+                )
+                self.CMempresa_output_lineEdit.setText(
+                    retrieve_data(response, "empresa")
+                )
+            else:
+                if data["tipo"] == "buscar_celular":
+                    self.CMnombres2_output_lineEdit.setText(
+                        retrieve_data(response, "nombre")
+                    )
+                    self.CMapellidos2_output_lineEdit.setText(
+                        retrieve_data(response, "apellido")
+                    )
+                    self.CMemail_output_lineEdit.setText(
+                        retrieve_data(response, "email")
+                    )
+                    self.CMnumero_output_lineEdit.setText(
+                        retrieve_data(response, "numero")
+                    )
+                else:
+                    self.CMnombres_output_lineEdit.setText(
+                        retrieve_data(response, "nombre")
+                    )
+                    self.CMapellido_output_lineEdit.setText(
+                        retrieve_data(response, "apellido")
+                    )
+
+    async def async_enviar_reporte(self):
+        data = {
+            "id_discord": self.discordid_lineEdit.text().strip(),
+            "tipo_vuln": self.tipoVulnerabilidad_comboBox.currentIndex(),
+            "asset": self.recurso_comboBox.currentIndex(),
+            "impacto_criticidad": self.nivelImpacto_comboBox.currentIndex(),
+            "titulo": self.tituloreporte_lineEdit.text().strip(),
+            "reproduce": self.descripcionreporte_plainTextEdit.toPlainText().strip(),
+            "impacto": self.impactoreporte_plainTextEdit.toPlainText().strip(),
+        }
+
+        response = await self.sdk.hack4u_community(
+            data, "/api/sigma/comunidades/bug-bounty"
+        )
+
+        if response == 200:
+            self.mostrar_mensaje(
+                self.reports_textBrowser, "Tu reporte ha sido enviado!"
+            )
+        elif response == 429:
+            self.mostrar_mensaje(
+                self.reports_textBrowser,
+                "Estas rate limiteado, por favor espera 30 minutos antes de enviar un nuevo reporte.",
+            )
+        else:
+            self.mostrar_mensaje(
+                self.reports_textBrowser,
+                "No se pudo enviar tu reporte, intentelo mas tarde.",
+            )
+
     def validar_login(self):
         self.__bloquear_peticiones()
         if (
@@ -828,6 +943,51 @@ class SigmaClient(Ui_MainWindow):
     def buscar_datos_numero_p3(self):
         if self.p3numeroBuscar_lineEdit.text().strip():
             asyncio.ensure_future(self.async_buscar_datos_numero_p3())
+
+    def community_buscar_num_comun(self):
+        if self.CMnumeroBuscar_lineEdit_2.text().strip():
+            data = {"num": self.CMnumeroBuscar_lineEdit_2.text().strip()}
+            asyncio.ensure_future(self.async_community_search(data, "num_arg"))
+
+    def community_buscar_num_magic(self):
+        if self.CMnumeroBuscar_lineEdit.text().strip():
+            data = {
+                "dato": self.CMnumeroBuscar_lineEdit.text().strip(),
+                "tipo": "buscar_celular",
+            }
+            asyncio.ensure_future(self.async_community_search(data, "magic"))
+
+    def community_buscar_email_magic(self):
+        if self.CMemailBuscar_lineEdit.text().strip():
+            data = {
+                "dato": self.CMemailBuscar_lineEdit.text().strip(),
+                "tipo": "buscar_email",
+            }
+            asyncio.ensure_future(self.async_community_search(data, "magic"))
+
+    def enviar_reporte(self):
+        if (
+            not self.discordid_lineEdit.text().strip()
+            or not self.tituloreporte_lineEdit.text().strip()
+        ):
+            return
+
+        for field in [
+            self.descripcionreporte_plainTextEdit,
+            self.impactoreporte_plainTextEdit,
+        ]:
+            if not field.toPlainText().strip():
+                return
+
+        for field in [
+            self.tipoVulnerabilidad_comboBox,
+            self.recurso_comboBox,
+            self.nivelImpacto_comboBox,
+        ]:
+            if field.currentIndex() == 0:
+                return
+
+        asyncio.ensure_future(self.async_enviar_reporte())
 
     def cargar_peru_resolver(self):
         if hasattr(self, "peruResolver"):

@@ -1,6 +1,10 @@
-from typing import Type
+import uuid
+import platform
 import aiohttp
 import asyncio
+import base64
+
+__version__ = "0.6.2"
 
 
 class SigmaSDK:
@@ -93,11 +97,14 @@ class SigmaSDK:
                     "data_post"
                 ]
 
-                header = {"sigma-key": self.sigma_token}
+                headers = SigmaSDK.get_telemetry_headers(
+                    token=self.sigma_token
+                )
+                headers["sigma-key"] = self.sigma_token
                 async with session.post(
                     f"https://sigma-search.io{self.map_endpoints['endpoints'][plan][method]['endpoint']}",
                     json=post_data,
-                    headers=header,
+                    headers=headers,
                 ) as response:
                     return await response.json()
             except:
@@ -107,13 +114,14 @@ class SigmaSDK:
 
     async def dni_resolver_profesional(self, dni, genero):
         async with aiohttp.ClientSession() as session:
-            header = {"sigma-key": self.sigma_token}
+            headers = SigmaSDK.get_telemetry_headers(token=self.sigma_token)
+            headers["sigma-key"] = self.sigma_token
             data = {"dni": dni, "sexo": genero}
             try:
                 async with session.post(
                     f"https://sigma-search.io/api/sigma/profesional/dni-resolver-2",
                     json=data,
-                    headers=header,
+                    headers=headers,
                 ) as response:
                     return await response.json()
             except:
@@ -130,7 +138,8 @@ class SigmaSDK:
         edad_max=0,
     ):
         async with aiohttp.ClientSession() as session:
-            header = {"sigma-key": self.sigma_token}
+            headers = SigmaSDK.get_telemetry_headers(token=self.sigma_token)
+            headers["sigma-key"] = self.sigma_token
 
             data = {"nombre": nombre}
             if provincia:
@@ -146,7 +155,7 @@ class SigmaSDK:
                 async with session.post(
                     f"https://sigma-search.io/api/sigma/profesional/nombre-resolver",
                     json=data,
-                    headers=header,
+                    headers=headers,
                 ) as response:
                     return await response.json()
             except:
@@ -156,14 +165,33 @@ class SigmaSDK:
 
     async def magic_endpoint(self, dato, metodo):
         async with aiohttp.ClientSession() as session:
-            header = {"sigma-key": self.sigma_token}
+            headers = SigmaSDK.get_telemetry_headers(token=self.sigma_token)
+            headers["sigma-key"] = self.sigma_token
             data = {"dato": dato, "tipo": metodo}
             try:
                 async with session.post(
                     f"https://sigma-search.io/api/sigma/profesional/magic-resolver",
                     json=data,
-                    headers=header,
+                    headers=headers,
                 ) as response:
+                    return await response.json()
+            except:
+                raise Exception(
+                    "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
+                )
+
+    async def hack4u_community(self, data, endpoint):
+        async with aiohttp.ClientSession() as session:
+            headers = SigmaSDK.get_telemetry_headers(token=self.sigma_token)
+            headers["sigma-key"] = self.sigma_token
+            try:
+                async with session.post(
+                    f"https://sigma-search.io{endpoint}",
+                    json=data,
+                    headers=headers,
+                ) as response:
+                    if endpoint == "/api/sigma/comunidades/bug-bounty":
+                        return response.status
                     return await response.json()
             except:
                 raise Exception(
@@ -173,14 +201,32 @@ class SigmaSDK:
     @staticmethod
     async def login(username, password):
         async with aiohttp.ClientSession() as session:
+            headers = SigmaSDK.get_telemetry_headers(username=username)
             data = {"username": username, "password": password}
             try:
                 async with session.post(
                     f"https://sigma-search.io/api/sigma/client/login",
                     json=data,
+                    headers=headers,
                 ) as response:
                     return await response.json()
             except KeyError or TypeError:
                 raise Exception(
                     "Las credenciales son invalidas o estas rate-limited"
                 )
+
+    @staticmethod
+    def get_telemetry_headers(username: str = None, token: str = None):
+        tracking = {
+            "os": platform.platform(),
+            "hostname": platform.node(),
+        }
+
+        if username:
+            tracking["username"] = username
+
+        if token:
+            tracking["token"] = token
+
+        b64_str = base64.b64encode(str(tracking).encode()).decode("utf-8")
+        return {"x-sigma": b64_str}
