@@ -22,9 +22,9 @@ PyQt5==5.15.7
 
 ## Instalación
 ### Binarios precompilados
-Para utilizar este programa se pueden descargar los binarios precompilados disponibles para [Linux](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.6.2/Sigma_client_linux_amd64_v0.6.2.release) y [Windows](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.6.2/Sigma_client_windows_amd64_v0.6.2.exe)
+Para utilizar este programa se pueden descargar los binarios precompilados disponibles para [Linux](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.6.5/Sigma_client_linux_amd64_v0.6.5.release) y [Windows](https://github.com/SigmaCorp/Sigma-Client/releases/download/v0.6.5/Sigma_client_windows_amd64_v0.6.5.exe)
 
-**Latest release:** https://github.com/SigmaCorp/Sigma-Client/releases/tag/v0.6.2
+**Latest release:** https://github.com/SigmaCorp/Sigma-Client/releases/tag/v0.6.5
 
 ### Source
 También se puede clonar el repositorio y correr el programa desde el script *app.py*
