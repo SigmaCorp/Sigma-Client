@@ -1,6 +1,14 @@
 # Change Log
 Todos los cambios realizados en Sigma Client estan listados a continuación.
 
+## Version 0.6.5 (2022-08-23)
+### Implementaciones
+- Incluido endpoints limitados para comunidades
+- Incluido la posibilidad de enviar reportes a nuestro programa de bug bounty
+
+### Changed
+- La busqueda de nombres incluye busqueda por DNI
+
 ## Version 0.6.2 (2022-08-19)
 ### Implementaciones
 - Filtros para la busqueda de nombres
