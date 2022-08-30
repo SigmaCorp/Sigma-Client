@@ -1,6 +1,10 @@
 # Change Log
 Todos los cambios realizados en Sigma Client estan listados a continuación.
 
+## Version 0.6.8 (2022-08-30)
+### Changed
+- Cambio en los endpoints de resolucion de DNI para profesional
+
 ## Version 0.6.5 (2022-08-23)
 ### Implementaciones
 - Incluido endpoints limitados para comunidades

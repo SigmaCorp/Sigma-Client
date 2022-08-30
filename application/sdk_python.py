@@ -35,7 +35,7 @@ class SigmaSDK:
                     },
                     "dni_resolver_2": {
                         "endpoint": "/api/sigma/profesional/dni-resolver-2",
-                        "data_post": {"dni": None},
+                        "data_post": {"dato": None},
                     },
                     "num_resolver": {
                         "endpoint": "/api/sigma/profesional/num_resolver",
@@ -86,48 +86,6 @@ class SigmaSDK:
                 },
             }
         }
-
-    async def api_controller(self, method, tipo_dato, dato, plan):
-        async with aiohttp.ClientSession() as session:
-            try:
-                self.map_endpoints["endpoints"][plan][method]["data_post"][
-                    tipo_dato
-                ] = dato
-                post_data = self.map_endpoints["endpoints"][plan][method][
-                    "data_post"
-                ]
-
-                headers = SigmaSDK.get_telemetry_headers(
-                    token=self.sigma_token
-                )
-                headers["sigma-key"] = self.sigma_token
-                async with session.post(
-                    f"https://sigma-search.io{self.map_endpoints['endpoints'][plan][method]['endpoint']}",
-                    json=post_data,
-                    headers=headers,
-                ) as response:
-                    return await response.json()
-            except:
-                raise Exception(
-                    "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
-                )
-
-    async def dni_resolver_profesional(self, dni, genero):
-        async with aiohttp.ClientSession() as session:
-            headers = SigmaSDK.get_telemetry_headers(token=self.sigma_token)
-            headers["sigma-key"] = self.sigma_token
-            data = {"dni": dni, "sexo": genero}
-            try:
-                async with session.post(
-                    f"https://sigma-search.io/api/sigma/profesional/dni-resolver-2",
-                    json=data,
-                    headers=headers,
-                ) as response:
-                    return await response.json()
-            except:
-                raise Exception(
-                    "Alguno de los parametros que ingresaste son incorrectos o estas rate-limited"
-                )
 
     async def buscar_nombre(
         self,

@@ -10,7 +10,7 @@ from .utils import retrieve_data, is_latest_version, get_changelog
 from .entries import PersonaEntry
 from .changelog import Changelog
 
-__version__ = "0.6.5"
+__version__ = "0.6.8"
 
 
 class SigmaClient(Ui_MainWindow):
@@ -503,7 +503,9 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando datos relacionados al dni {dni_str} ...",
         )
 
-        response = await self.sdk.dni_resolver_profesional(dni_str, genero_str)
+        response = await self.sdk.api_controller(
+            "dni_resolver_2", "dato", f"{dni_str}:{genero_str}", "profesional"
+        )
 
         if "error" in response:
             self.mostrar_mensaje(
