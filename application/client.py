@@ -10,7 +10,7 @@ from .utils import retrieve_data, is_latest_version, get_changelog
 from .entries import PersonaEntry
 from .changelog import Changelog
 
-__version__ = "0.6.8"
+__version__ = "0.6.9"
 
 
 class SigmaClient(Ui_MainWindow):
@@ -154,7 +154,6 @@ class SigmaClient(Ui_MainWindow):
             tabla.removeRow(0)
 
     def __settear_token(self, token, plan):
-        self.sdk = SigmaSDK(token)
         self.plan = plan
         self.__habilitar_peticiones_por_plan(plan)
 
@@ -200,6 +199,8 @@ class SigmaClient(Ui_MainWindow):
                 f"Bienvenido {usuario}! Tu plan es <b>{self.planes[response['plan']]}<b/>",
             )
             self.__settear_token(response["token"], response["plan"])
+            self.sdk = SigmaSDK(response["token"], response["plan"])
+            await self.sdk.create_session()
             self.mostrar_mensaje(
                 self.mconsole_textBrowser,
                 f"Tu cliente ha sido configurado para utilizar la token {response['token']} y el plan correspondiente.",
@@ -212,15 +213,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando información del DNI {dni_str} ...",
         )
 
-        endpoint = {
-            1: "dni_resolver",
-            2: "dni-resolver-medium",
-            3: "dni-resolver-standard",
-        }[self.plan]
-
-        response = await self.sdk.api_controller(
-            endpoint, "dni", dni_str, self.planes[self.plan]
-        )
+        response = await self.sdk.buscar_dni(dni_str)
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -268,15 +261,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando numeros del DNI {dni_str} ...",
         )
 
-        endpoint = {
-            1: "dni_number_resolver",
-            2: "dni-number-resolver-medium",
-            3: "dni-number-resolver-standard",
-        }[self.plan]
-
-        response = await self.sdk.api_controller(
-            endpoint, "dni", dni_str, self.planes[self.plan]
-        )
+        response = await self.sdk.buscar_num_por_dni(dni_str)
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -351,13 +336,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando registros de la patente {patente_str} ...",
         )
 
-        endpoint = {1: "patente_resolver", 2: "patente-resolver-medium"}[
-            self.plan
-        ]
-
-        response = await self.sdk.api_controller(
-            endpoint, "patente", patente_str, self.planes[self.plan]
-        )
+        response = await self.sdk.buscar_patente(patente_str)
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -404,14 +383,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando registros relacionados al DNI {dni_str} ...",
         )
 
-        endpoint = {
-            1: "patente_dni_resolver",
-            2: "patente-resolver-dni-medium",
-        }[self.plan]
-
-        response = await self.sdk.api_controller(
-            endpoint, "dni", dni_str, self.planes[self.plan]
-        )
+        response = await self.sdk.buscar_patente_por_dni(dni_str)
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -458,9 +430,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando datos relacionados al numero {numero_str} ...",
         )
 
-        response = await self.sdk.api_controller(
-            "num_resolver", "num", numero_str, "profesional"
-        )
+        response = await self.sdk.buscar_por_celular(numero_str)
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -503,9 +473,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando datos relacionados al dni {dni_str} ...",
         )
 
-        response = await self.sdk.api_controller(
-            "dni_resolver_2", "dato", f"{dni_str}:{genero_str}", "profesional"
-        )
+        response = await self.sdk.buscar_por_dni_pro(f"{dni_str}:{genero_str}")
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -588,9 +556,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando email relacionado al numero {num_str} en movistar ...",
         )
 
-        response = await self.sdk.api_controller(
-            "movistar", "num", num_str, "profesional"
-        )
+        response = await self.sdk.buscar_email_movistar(num_str)
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -619,7 +585,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando personas con nombre '{nombre_str}' ...",
         )
 
-        response = await self.sdk.buscar_nombre(
+        response = await self.sdk.buscar_por_nombre(
             nombre_str,
             provincia_str,
             localidad_str,
@@ -657,9 +623,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando vecinos en {direccion_str} ...",
         )
 
-        response = await self.sdk.api_controller(
-            "buscar_vecinos", "direccion", direccion_str, "profesional"
-        )
+        response = await self.sdk.buscar_por_direccion(direccion_str)
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -701,7 +665,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando datos del titular de {cbv_or_alias_str} ...",
         )
 
-        response = await self.sdk.magic_endpoint(
+        response = await self.sdk.magic_resolver(
             cbv_or_alias_str, "buscar_cbu_alias"
         )
 
@@ -738,7 +702,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando datos de email {email_str} ...",
         )
 
-        response = await self.sdk.magic_endpoint(email_str, "buscar_email")
+        response = await self.sdk.magic_resolver(email_str, "buscar_email")
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -764,7 +728,7 @@ class SigmaClient(Ui_MainWindow):
             f"Buscando datos del numero {numero_str} ...",
         )
 
-        response = await self.sdk.magic_endpoint(numero_str, "buscar_celular")
+        response = await self.sdk.magic_resolver(numero_str, "buscar_celular")
 
         if "error" in response:
             self.mostrar_mensaje(
@@ -791,8 +755,8 @@ class SigmaClient(Ui_MainWindow):
 
     async def async_community_search(self, data, method):
         endpoint = {
-            "num_arg": "/api/sigma/comunidades/hack4u/num_resolver/argentina",
-            "magic": "/api/sigma/comunidades/hack4u/magic_resolver/argentina",
+            "num_arg": "/api/v2/comunidades/hack4u/argentina/resolver/celular",
+            "magic": "/api/v2/comunidades/hack4u/argentina/resolver/magic",
         }[method]
 
         self.mostrar_mensaje(
