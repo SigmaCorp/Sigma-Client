@@ -4,11 +4,14 @@
 block_cipher = None
 
 try:
-	version = "_v" + open("../../VERSION.md").read()
+    import platform
+    release_os = platform.system().lower()
+    version = "_v" + open("../../VERSION.md").read()
 except:
-	version = ""
+    release_os = ""
+    version = ""
 finally:
-	fname = f"Sigma_client_windows_amd64{version}"
+    fname = f"Sigma_client_{release_os}_amd64{version}"
 
 
 a = Analysis(
