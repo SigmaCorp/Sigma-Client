@@ -27,6 +27,14 @@ Para utilizar este programa se pueden descargar los binarios precompilados dispo
 
 **Latest release:** https://github.com/SigmaCorp/Sigma-Client/releases/tag/v0.6.9
 
+### Compilacion
+Se puede compilar en un ejecutable utilizando `PyInstaller`
+```console
+git clone https://github.com/SigmaCorp/Sigma-Client
+cd Sigma-Client/devtools
+pyinstaller build_sigma.spec
+```
+
 ### Source
 También se puede clonar el repositorio y correr el programa desde el script *app.py*
 ```console
