@@ -12,7 +12,14 @@ Sigma Client es una herramienta gráfica que facilita la interacción con la API
 - Automaticamente utiliza los endpoints correspondientes al plan de la cuenta
 
 ## Screenshots
-![client](https://user-images.githubusercontent.com/74129955/186548490-7d56e396-976b-4e6c-9bbc-3ee2c4762c32.png)
+![image](https://user-images.githubusercontent.com/74129955/188284886-b2671f7d-7ee3-4368-ae8c-20d21f5ed483.png)
+![image](https://user-images.githubusercontent.com/74129955/188284918-9becaf63-8eee-4416-9255-a344f1f1108f.png)
+![image](https://user-images.githubusercontent.com/74129955/188284963-665fccaa-de20-4a43-ba46-651312d42419.png)
+![image](https://user-images.githubusercontent.com/74129955/188284977-37d8b753-9331-436d-aba8-d44425d32d00.png)
+![image](https://user-images.githubusercontent.com/74129955/188285007-d9b511f3-d832-47af-95de-1012f9586fe8.png)
+![image](https://user-images.githubusercontent.com/74129955/188285018-3376c30b-68a3-4b92-8f6d-9f779b4c6fa6.png)
+![image](https://user-images.githubusercontent.com/74129955/188285032-cca8e792-0d54-4218-bcd0-f737e08235c9.png)
+
 
 
 ## Requerimientos
