@@ -1,6 +1,13 @@
 # Change Log
 Todos los cambios realizados en Sigma Client estan listados a continuación.
 
+## Version 0.7.0 (2022-09-03)
+### Implementaciones
+- Acceso a busqueda en data breach para plan medium o superior
+
+### Fixed
+- Peru resolver reference bug
+
 ## Version 0.6.9 (2022-09-02)
 ### Changed
 - Cambio en los endpoints a la version 2

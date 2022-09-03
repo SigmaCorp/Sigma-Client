@@ -155,12 +155,22 @@ class SigmaSDK:
             json=data,
         )
 
-    def data_breach_search(self, dato: str):
-        data = {"dato": dato}
+    def data_breach_search(self, query: str):
+        data = {"query": query}
         return self.request(
             Route(
                 "POST",
                 f"/profesional/osint/argentina/search_engine/data_breach",
+            ),
+            json=data,
+        )
+
+    def buscar_peru_persona(self, dato: str):
+        data = {"dato": dato}
+        return self.request(
+            Route(
+                "POST",
+                f"/free/osint/peru/resolver/celular_dni",
             ),
             json=data,
         )

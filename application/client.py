@@ -10,7 +10,7 @@ from .utils import retrieve_data, is_latest_version, get_changelog
 from .entries import PersonaEntry
 from .changelog import Changelog
 
-__version__ = "0.6.9"
+__version__ = "0.7.0"
 
 
 class SigmaClient(Ui_MainWindow):
@@ -98,6 +98,8 @@ class SigmaClient(Ui_MainWindow):
 
         self.enviarReporte_pushButton.clicked.connect(self.enviar_reporte)
 
+        self.buscarLeaks_pushButton.clicked.connect(self.buscar_data_breach)
+
     def __bloquear_peticiones(self):
         self.sbuscardatos_pushButton.setEnabled(False)
         self.sbuscartelefono_pushButton.setEnabled(False)
@@ -117,6 +119,7 @@ class SigmaClient(Ui_MainWindow):
         self.CMbuscarDato_pushButton_2.setEnabled(False)
         self.CMemailBuscar_pushButton.setEnabled(False)
         self.enviarReporte_pushButton.setEnabled(False)
+        self.buscarLeaks_pushButton.setEnabled(False)
 
     def __habilitar_peticiones_por_plan(self, plan):
         if plan == 4:
@@ -138,6 +141,7 @@ class SigmaClient(Ui_MainWindow):
         if plan <= 2:
             self.buscarPatente_pushButton.setEnabled(True)
             self.buscarPatentDNI_pushButton.setEnabled(True)
+            self.buscarLeaks_pushButton.setEnabled(True)
 
         if plan == 1:
             self.proBuscarNum_pushButton.setEnabled(True)
@@ -753,6 +757,42 @@ class SigmaClient(Ui_MainWindow):
                 retrieve_data(response, "numero")
             )
 
+    async def async_buscar_data_breach(self):
+        query_str = self.queryBreach_lineEdit.text().strip()
+
+        self.mostrar_mensaje(
+            self.mconsoleback_textBrowser,
+            f"Buscando query {query_str} en nuestra DB ...",
+        )
+
+        response = await self.sdk.data_breach_search(query_str)
+
+        if "error" in response:
+            self.mostrar_mensaje(
+                self.mconsoleback_textBrowser, response.get("error")
+            )
+        else:
+            self.mostrar_mensaje(
+                self.mconsoleback_textBrowser,
+                f"Se encontraron {len(response)} entradas relacionados a la query {query_str}, cargando ...",
+            )
+            for entrada in response:
+                rowPosition = self.dataBreachResults_tableWidget.rowCount()
+                self.dataBreachResults_tableWidget.insertRow(rowPosition)
+                for indice, campo in enumerate(
+                    [
+                        "usuario",
+                        "password",
+                    ]
+                ):
+                    self.dataBreachResults_tableWidget.setItem(
+                        rowPosition,
+                        indice,
+                        QtWidgets.QTableWidgetItem(
+                            retrieve_data(entrada, campo)
+                        ),
+                    )
+
     async def async_community_search(self, data, method):
         endpoint = {
             "num_arg": "/api/v2/comunidades/hack4u/argentina/resolver/celular",
@@ -909,6 +949,11 @@ class SigmaClient(Ui_MainWindow):
     def buscar_datos_numero_p3(self):
         if self.p3numeroBuscar_lineEdit.text().strip():
             asyncio.ensure_future(self.async_buscar_datos_numero_p3())
+
+    def buscar_data_breach(self):
+        self.__limpiar_tabla(self.dataBreachResults_tableWidget)
+        if self.queryBreach_lineEdit.text().strip():
+            asyncio.ensure_future(self.async_buscar_data_breach())
 
     def community_buscar_num_comun(self):
         if self.CMnumeroBuscar_lineEdit_2.text().strip():

@@ -244,9 +244,7 @@ class PeruResolver(QtWidgets.QDialog):
             f"Buscando datos relacionados a {dato_str} en peru ...",
         )
 
-        response = await self.client_parent.sdk.api_controller(
-            "peru", "dato", dato_str, "free"
-        )
+        response = await self.client_parent.sdk.buscar_peru_persona(dato_str)
 
         if "error" in response:
             self.client_parent.mostrar_mensaje(
