@@ -6,7 +6,7 @@ block_cipher = None
 try:
     import platform
     release_os = platform.system().lower()
-    version = "_v" + open("../../VERSION.md").read()
+    version = "_v" + open("../VERSION.md").read()
 except:
     release_os = ""
     version = ""
